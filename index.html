@@ -10,6 +10,8 @@
             background-color: #8AA5C1;
          }
          #container {
+            z-index: 1;
+            position: absolute;
             max-width: 23em;
             margin: 2em auto;
             box-sizing: border-box;
@@ -30,15 +32,85 @@
             font-size: small;
             color: black;
          }
+         .USA {
+                font-size: small;
+                text-shadow: #666 .1em .1em .1em;
+                box-shadow: 0 4px 2px rgba(0,0,0,.5);
+                border-style: solid;
+                border-width: .125em;
+                border-radius: .5em;
+                border-color: black;
+                background-color: aquamarine;
+                position: relative;
+                top: 0px;
+                transition:
+                background-color 0.5s ease-in,
+                border-color 0.5s ease-in,
+                top 0.2s,
+                box-shadow 0.2s;
+
+            }
+            .USA:hover, .USA:focus {
+            /*.USA:hover {*/
+            cursor: pointer;
+            background-color: lightgreen;
+            /*background-color: #c6de89;*/
+            border-color: darkkhaki;
+            }
+            /*.USA:focus { 
+            background-color: #c6de89;
+            border-color: #a3c058;
+            }*/
+            .USA:active {
+            /*background-color: limegreen;*/
+            top: 3px;
+            box-shadow: 0 1px 2px rgba(0,0,0,.5);
+            }        
          img {
             border-width: .5em;
             border-style: solid;
             border-color: lemonchiffon;
             float: left;
          }
+         #B {
+            z-index: 20;
+            position: absolute;
+            top: 2em;
+            left: 10em;
+         }
+         #C {
+            z-index: 20;
+            position: absolute;
+            top: 2em;
+            left: 17em;
+            animation: bobble .5s 3 ease-in;
+         }
+         @keyframes bobble {
+    0% {
+        transform: translateY(-5px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    75% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(-1px);
+    }
+}
+         #lawn {
+            z-index: 50;
+            position: absolute;
+            background: khaki;
+         }
+         #monarch {
+            z-index: 50;
+            position: absolute;
+            background: khaki;
+         }
          iframe {
-            border: none;
-            
+            border: none;  
          }
          td {
             text-align: center;
@@ -59,7 +131,68 @@
       <div id="container">
         <div id="layout">
             <div id="one">
-                  <img src="https://github.com/expansestream/butterflygarden/blob/main/jfarms_cropped.jpg?raw=true" height="220" width="340" alt="jfarms cropped logo">
+               <img src="https://github.com/expansestream/butterflygarden/blob/main/jfarms_cropped.jpg?raw=true" height="220" width="340" alt="jfarms cropped logo">
+
+                  <p id="B"><button class="USA">Lawn Redo</button></p>
+                     <dialog id="lawn">
+                        <span style="text-align: left">
+                        <img src="https://github.com/expansestream/butterflygarden/blob/main/IMG_0091.jpg?raw=true" height="150" width="150" alt="side yard">
+                        <p>In addition to obtaining horticultural knowledge unique to Colorado, jfarmsboulder was interested in CSU&#8217;s Certified Gardener program because there was a section devoted to lawn care. As new homeowners, jfarms was excited to improve the landscape, transform their yard into a xeric paradise, reduce their water bill; in short, letting the lawn grow in accordance with nature.</p>
+                        <p></p> 
+                        <p>One of the first attempts was to transform portions of the front yard into a field of thyme. It never worked because the neighborhood rabbit population made short work of the plantings, even when they were protected with metal-mesh window screen material. Then came the bind weed. It was pervasive.  The owners tried to control it by extracting it from its roots, but alias.  The tap root of a bind weed can be over 6&quot; long!  At this point, it became clear that a &ldquo;mommy makeover&rdquo; was in order.</p>
+                        <p>Fortunately, CSU has a publication outlining the steps to redo one&rsquo;s lawn <a href="https://extension.colostate.edu/docs/pubs/garden/07241.pdf" target="display">click here</a>.  CSU&rsquo;s technique works, with the following caveats:</p>
+                        <ul>
+                           <li>The technique recommends using Roundup&reg; as one of the first steps to kill the existing lawn.  Roundup&reg; does knock out what was previously planted.  It does not, however, inhibit the new growth of the replacement lawn.</li>
+                           <li>Block off the lawn into 6&quot;x6&quot; sections that can be easily managed.  If one chooses to do an entire yard at once, be prepared to follow through in short order.  Unfortunately, jfarms tired doing a large their back section of yard, applying Roundup&reg;, prepping the soil, but delayed planting new seed for 2 weeks.  <span style="color:red">BIG MISTAKE!</span>  With nothing in the ground to germinate, the weeds came back with a vengeance!</li>
+                           <li>CSU&rsquo;s technique showed the most success when shady areas of the existing lawn were replanted as shown above.</li>
+                        </ul>
+                        </span>
+                        <button class="USA" type="reset" id="cancellawn">Close</button>
+                     </dialog>
+                  <script>
+                     document.getElementById("B").addEventListener("click",discreption1,false);
+                        function discreption1() {
+                             dialog = document.getElementById("lawn");
+                             dialog.show();   
+                        };
+                        document.getElementById("cancellawn").addEventListener("click",discreption12,false);
+                        function discreption12() {
+                             dialog = document.getElementById("lawn");
+                             dialog.close();   
+                        };
+                  </script>
+                  
+                  <p id="C"><button class="USA">Monarch Butterflies</button></p>
+                     <dialog id="monarch">
+                        <span style="text-align: left">
+                           <img src="https://monarchwatch.org/waystations/monarch_waystation_program.png" height="150" width="150" alt="monarch_waystation_program">
+                        <p>The seeds of jfarmsboulder were sewn in the fall of 2016.  As the nation was gripped in the presidential election, Denver tv channels began reporting mysterious sightings on their weather radar systems.  For close to two weeks, light blue images, thought to be fog-like moisture, could be seen on their websites.  Public interest soared.  Explanations were few.  Ground clutter was thought to be the culprit, but no.  The images were plumes of Painted Lady butterflies, so dense, that they were detected by radar!  When jfarms approached one of their soon-to-be clients, the expectation was that a butterfly garden would induce the Painted Ladies to return year-after-year.
+                           <p></p>
+                           Well, that never happened.  What did happen was that a large butterfly garden took shape, and the interest shifted to attracting Monarch Butterflies.  In fact, the butterfly garden is registered as a Monarch Way Station, one of the largest in Colorado.  
+                           <p></p>
+                           So, where are the butterflies?  In the eight years since 2016, there have been butterflies in the garden, primarily Painted Ladies, Swallow Tails, and an occasional Monarch or two.  The University of Kansas, the prompter of the Monarch Way Station program, has been monitoring the Monarch population in the United States and Mexico for several years.  This is important because like most of us, jfarms loves to see the concluding segment if a David Attenborough or Morgan Freeman nature documentary conclude with massive swarms of Monarch Butterflies crowding the forests of southern Mexico where they spend the winter.
+                           <p></p>
+                           The Monarchs are in trouble.  The 2023-2024 over-wintering population in Mexico is the 2<sup>nd</sup> lowest ever recorded.  This is well documented in KU&#8217;s Monarch Watch blog <a href=https://monarchwatch.org/blog/ target=”display”>click here</a>.  Of particular interest is the map of North America showing the flyways of the Monarch.  Colorado is on the extreme (the very extreme) western edge of their flight path.  Hopefully butterfly gardens like the one managed by jfarmsboulder will entice them to take a second look and spend a while as they pass close to Colorado!
+                        </p>
+                        </span>
+                        <button class="USA" type="reset" id="cancelmonarch">Close</button>
+                     </dialog>
+                  <script>
+                     document.getElementById("C").addEventListener("click",discreption2,false);
+                        function discreption2() {
+                             dialog = document.getElementById("monarch");
+                             dialog.show();   
+                        };
+                        document.getElementById("cancelmonarch").addEventListener("click",discreption12,false);
+                        function discreption12() {
+                             dialog = document.getElementById("monarch");
+                             dialog.close();   
+                        };
+                  </script> 
+
+                  
+                  <!---<img src="https://monarchwatch.org/waystations/monarch_waystation_program.png" alt="monarch_waystation_program">--->
+                  <!---<img src="https://extension.colostate.edu/docs/pubs/garden/07241.pdf" height="220" width="340" alt="CSU lawn redue">--->
                   <img src="https://github.com/expansestream/butterflygarden/blob/main/IMG_2094%20(2).JPEG?raw=true" height="150" width="150" alt="CA Garden after July summer rain">                  
                     <p>Thank you for taking a look at jfarmsboulder, a Colorado company founded in the summer of 2016, co-managed by Roz Greene and John Brand. The company was initially created to grow certain <a href = "https://plantselect.org/" target="display">Plant Select<sup>&reg;</sup></a> varieties of xeric plants that will survive the harsh environments of the Colorado Front Range. The company&#8217;s management has been interested in commercial growing for several years, and realized that warming global temperatures will enhance and increase the length of the Colorado growing season.</p>
                     <img src="https://github.com/expansestream/butterflygarden/blob/main/IMG_0165.jpg?raw=true" height="150" width="150" alt="Indoor Growing">
@@ -97,7 +230,11 @@
                               <li>Tree Selection and Planting - Planting a tree.</li>
                               <li>Pruning - Best time to prune.</li>
                               <li>Soils, Fertilizers & Soil Amendments - A lot!</li>
-                              <li>Herbaceous Plants - Woody stems!</li>
+                              <!---<li>Herbaceous Plants - Woody stems!</li>--->
+                              <!---https://github.com/expansestream/butterflygarden/blob/main/website_herbaceousplantpresentation%20(2).gif?raw=true--->
+                              <li><a href="https://github.com/expansestream/butterflygarden/blob/main/website_herbaceousplantpresentation%20(2).gif?raw=true" target=”display”>Herbaceous Plants</a> - Woody Stems!</li>
+
+
                               <li>Lawn Care - Source of carbon capture?</li>
                               <li>Irrigation Management - Doing with less.</li>
                               <li>Water Wise Landscape Design - Plant Select<sup>&reg;</sup>.</li>
